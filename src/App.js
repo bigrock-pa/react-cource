@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import MyComponent from "./components/MyComponent.jsx";
-import ulComponent from "./components/ulComponent.jsx";
+import UlComponent from "./components/UlComponent.jsx";
 
 function App() {
 
@@ -15,15 +15,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
+        <p>Edit <code>src/App.js</code> and save to reload.</p>
+        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
         
-        <ulComponent value={array}>
-        </ulComponent>
+        <UlComponent value={array}>
+        </UlComponent>
         
         <MyComponent />
       </header>

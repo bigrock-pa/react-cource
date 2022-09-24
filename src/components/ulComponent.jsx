@@ -1,16 +1,17 @@
 import React from 'react';
+import List from './List.jsx'
 
-
-const ulComponent = (data) => {
- 
-	const { array } = data;
-
-		return(
-			<ul>
-				{array.map((element, index) => <div key={index}>{element}</div>)}
-			</ul>
-		);
-		
-	};
+const UlComponent = ({ value }) => {
 	
-	export default ulComponent;
+	return (
+
+		<div className="bloglist">
+			{value.map((valueList) =>
+				<List valueList={valueList} />
+			)}
+		</div>
+
+	);
+};
+
+export default UlComponent;
