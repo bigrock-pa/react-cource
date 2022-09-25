@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import MyComponent from "./components/MyComponent.jsx";
 import UlComponent from "./components/UlComponent.jsx";
+import MyInput from "./components/MyInput.jsx";
+import React, { useState } from 'react';
 
 function App() {
 
@@ -11,6 +13,8 @@ function App() {
     {id: 3, content: 'thirdElement'},
   ];
 
+  const [searchComponent, setSearchComponent] = useState()
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,8 @@ function App() {
         <p>Edit <code>src/App.js</code> and save to reload.</p>
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
         
+        <MyInput />
+
         <UlComponent value={array}>
         </UlComponent>
         
