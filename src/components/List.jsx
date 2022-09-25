@@ -7,7 +7,7 @@ const List = (props) => {
 		return (
 
 			<li>
-				<b>{props.valueList.id}. {props.valueList.content}</b>
+				<b>{props.valueList}</b>
                 <ul><Element elementValue={elementValue}/></ul>
 			</li>
 

@@ -3,17 +3,35 @@ import './App.css';
 import MyComponent from "./components/MyComponent.jsx";
 import UlComponent from "./components/UlComponent.jsx";
 import MyInput from "./components/MyInput.jsx";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
 
-  const array = [
-    {id: 1, content: 'firstElement'},
-    {id: 2, content: 'secondElement'},
-    {id: 3, content: 'thirdElement'},
-  ];
+const list = [
+  "firstElement",
+  "secondElement",
+  "thirdElement"
+];
 
-  const [searchComponent, setSearchComponent] = useState()
+  const [searchList, setSearchList] = useState();
+  const handleChange = event => {
+    setSearchList(event.target.value);
+  };
+
+  const results = !searchList
+    ? list
+    : list.filter(person =>
+        person.toLowerCase().includes(searchList.toLocaleLowerCase())
+      );
+      
+      useEffect(() => {
+        if (searchList) {
+        document.title = `${searchList}`;  
+      }
+      else {
+        document.title = `useEffect hook example`;  
+      }
+      })
 
   return (
     <div className="App">
@@ -21,14 +39,15 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Edit <code>src/App.js</code> and save to reload.</p>
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-        
-        <MyInput />
+      
+      <MyInput placeholder="Поиск" value={searchList} onChange={handleChange} />
 
-        <UlComponent value={array}>
-        </UlComponent>
-        
-        <MyComponent />
-      </header>
+      <UlComponent value={results}>
+      </UlComponent>
+
+      <MyComponent />
+
+            </header>
     </div>
   );
 }
